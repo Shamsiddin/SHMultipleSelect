@@ -2,9 +2,7 @@
 
 SHMultipleSelect is an easy-to-use multiple selection view for iOS 7+.
 
-![ScreenShots](ScreenShots/shmultipleselect.png =320x480)
-
-<img src="ScreenShots/shmultipleselect.png" alt="SHMultipleSelect" style="width: 32px; height: 48px;"/>
+![ScreenShots](ScreenShots/shmultipleselect.png)
 
 Created by Shamsiddin
 https://www.linkedin.com/in/shamsiddin
