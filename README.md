@@ -11,20 +11,6 @@ https://www.linkedin.com/in/shamsiddin
 * Import `SHMultipleSelect.h` and implement `SHMultipleSelectDelegate` protocol
 * See Demo project for details
 
-##ARC
-
-SHMultipleSelect uses ARC (Automatic Reference Counting).
-
-If you are using SHMultipleSelect in your non-arc project, you will need to set a `-fobjc-arc` compiler flag on all of the SHMultipleSelect source files.
-
-To set a compiler flag in Xcode, go to your active target and select the "Build Phases" tab. Now select all SHMultipleSelect source files, press Enter, insert `-fobjc-arc` and then "Done" to disable ARC for SHMultipleSelect.
-
-##Uses Frameworks
-
-* UIKit.framework
-* Foundation.framework
-* QuartzCore.framework
-
 ##Delegate methods
 
 ```objective-c
@@ -56,6 +42,20 @@ To set a compiler flag in Xcode, go to your active target and select the "Build 
     return canSelect;
 }
 ```
+
+##ARC
+
+SHMultipleSelect uses ARC (Automatic Reference Counting).
+
+If you are using SHMultipleSelect in your non-arc project, you will need to set a `-fobjc-arc` compiler flag on all of the SHMultipleSelect source files.
+
+To set a compiler flag in Xcode, go to your active target and select the "Build Phases" tab. Now select all SHMultipleSelect source files, press Enter, insert `-fobjc-arc` and then "Done" to disable ARC for SHMultipleSelect.
+
+##Uses Frameworks
+
+* UIKit.framework
+* Foundation.framework
+* QuartzCore.framework
 
 ## License
 
