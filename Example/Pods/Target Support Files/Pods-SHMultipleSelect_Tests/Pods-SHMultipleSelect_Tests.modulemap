@@ -1,0 +1,6 @@
+framework module Pods_SHMultipleSelect_Tests {
+  umbrella header "Pods-SHMultipleSelect_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

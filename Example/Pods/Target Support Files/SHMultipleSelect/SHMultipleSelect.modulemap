@@ -1,0 +1,6 @@
+framework module SHMultipleSelect {
+  umbrella header "SHMultipleSelect-umbrella.h"
+
+  export *
+  module * { export * }
+}
