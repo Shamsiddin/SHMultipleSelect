@@ -7,8 +7,8 @@ https://www.linkedin.com/in/shamsiddin
 
 ## Usage
 
-* Copy class files from Pod/Classes folder to your project
-* Import SHMultipleSelect.h and implement SHMultipleSelectDelegate protocol
+* Copy class files from `Pod/Classes` folder to your project
+* Import `SHMultipleSelect.h` and implement `SHMultipleSelectDelegate` protocol
 * See Demo project for details
 
 ##ARC
