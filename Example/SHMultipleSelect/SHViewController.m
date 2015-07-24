@@ -25,7 +25,7 @@
     [_btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_btn];
     
-    _dataSource = [[NSMutableArray alloc] initWithObjects:@"James", @"Ropert", @"Michael", @"William", @"David", @"Richard", nil];
+    _dataSource = [[NSMutableArray alloc] initWithObjects:@"James", @"Robert", @"Michael", @"William", @"David", @"Richard", nil];
 }
 
 - (void)didReceiveMemoryWarning
