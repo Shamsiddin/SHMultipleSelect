@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SHMultipleSelect"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "An easy-to-use multiple selection view."
   s.description      = <<-DESC
                        An easy-to-use multiple selection view for iOS 7+.
