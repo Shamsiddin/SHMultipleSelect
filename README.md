@@ -1,17 +1,27 @@
 # SHMultipleSelect
 
-SHMultipleSelect is an easy-to-use multiple selection view for iOS 7+.
+SHMultipleSelect is an easy-to-use multiple selection view for iOS 7.0+.
 
 <a href="url"><img src="ScreenShots/shmultipleselect.png" align="center" width="320" height="568" ></a>
 
 Created by Shamsiddin
 https://www.linkedin.com/in/shamsiddin
 
-## Usage
+##Installation
+
+####Cocoapods
+SHMultipleSelect is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
+
+`pod "SHMultipleSelect", "~> 0.2.2"`
+
+####Manually
 
 * Copy class files from `Pod/Classes` folder to your project
+
+## Usage
+
 * Import `SHMultipleSelect.h` and implement `SHMultipleSelectDelegate` protocol
-* See Demo project for details
+* See Demo project for more details
 
 ##Delegate methods
 
