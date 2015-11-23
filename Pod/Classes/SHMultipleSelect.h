@@ -33,6 +33,8 @@
 @property (nonatomic, assign) id<SHMultipleSelectDelegate> delegate;
 @property (nonatomic, assign) NSInteger rowsCount;
 
+@property (nonatomic, assign) BOOL hasSelectAll;
+
 - (void)show;
 
 @end
