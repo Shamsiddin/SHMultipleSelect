@@ -16,6 +16,10 @@
 
 
 @implementation SHMultipleSelect
+{
+    //To preserve selection after selectAll has been selected and then deselected
+    NSArray *selectedIBackup;
+}
 
 const int selectionRowHeight = 40;
 const int selectionBtnHeight = 40;
@@ -44,6 +48,8 @@ const int selectionTopMargin = 30;
         _btnsSeparator = [[UIView alloc] init];
         
         _coverView = [[UIView alloc] init];
+        
+        self.hasSelectAll = NO;
     }
     return self;
 }
@@ -86,11 +92,39 @@ const int selectionTopMargin = 30;
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.hasSelectAll && (indexPath.row==0)) {
+        
+        selectedIBackup = _table.indexPathsForSelectedRows;
+        
+        for (int i=1; i<self.rowsCount; i++) {
+            [_table selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+        }
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.hasSelectAll && (indexPath.row==0)) {
+        for (int i=1; i<self.rowsCount; i++) {
+            [_table deselectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] animated:NO];
+        }
+    }
+    else if (self.hasSelectAll) {
+        [_table deselectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO];
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return selectionRowHeight;
 }
 
 - (void)show {
+    
+    //Fixes an issue when triggerring while keyboard is showing
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+
     [UIView animateWithDuration:0.2 animations:^{
         self.layer.opacity = 1;
     }];
