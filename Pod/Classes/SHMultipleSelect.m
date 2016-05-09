@@ -94,6 +94,10 @@ const int selectionTopMargin = 30;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([_delegate respondsToSelector:@selector(multipleSelectView:didSelectRowAtIndexPath:)]) {
+        [_delegate multipleSelectView:self didSelectRowAtIndexPath:indexPath];
+    }
+
     if (self.hasSelectAll && (indexPath.row==0)) {
         
         selectedIBackup = _table.indexPathsForSelectedRows;
@@ -106,6 +110,10 @@ const int selectionTopMargin = 30;
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([_delegate respondsToSelector:@selector(multipleSelectView:didDeselectRowAtIndexPath:)]) {
+        [_delegate multipleSelectView:self didDeselectRowAtIndexPath:indexPath];
+    }
+
     if (self.hasSelectAll && (indexPath.row==0)) {
         for (int i=1; i<self.rowsCount; i++) {
             [_table deselectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] animated:NO];
