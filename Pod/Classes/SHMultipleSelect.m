@@ -94,6 +94,10 @@ const int selectionTopMargin = 30;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([_delegate respondsToSelector:@selector(multipleSelectView:didSelectRowAtIndexPath:)]) {
+        [_delegate multipleSelectView:self didSelectRowAtIndexPath:indexPath];
+    }
+
     if (self.hasSelectAll && (indexPath.row==0)) {
         
         selectedIBackup = _table.indexPathsForSelectedRows;
@@ -106,6 +110,10 @@ const int selectionTopMargin = 30;
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([_delegate respondsToSelector:@selector(multipleSelectView:didDeselectRowAtIndexPath:)]) {
+        [_delegate multipleSelectView:self didDeselectRowAtIndexPath:indexPath];
+    }
+
     if (self.hasSelectAll && (indexPath.row==0)) {
         for (int i=1; i<self.rowsCount; i++) {
             [_table deselectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] animated:NO];
@@ -166,7 +174,7 @@ const int selectionTopMargin = 30;
     // _cancelBtn settings
     _cancelBtn.frame = CGRectMake(0, _tableScroll.bottom, _coverView.width/2, selectionBtnHeight);
     _cancelBtn.tag = 0;
-    [_cancelBtn setTitle:@"Cancel" forState:UIControlStateNormal];
+    [_cancelBtn setTitle:NSLocalizedString(@"Cancel", @"Cancel") forState:UIControlStateNormal];
     [_cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_cancelBtn setBackgroundImage:btnImageNormal forState:UIControlStateNormal];
     [_cancelBtn setBackgroundImage:btnImageHighlighted forState:UIControlStateHighlighted];
@@ -176,7 +184,7 @@ const int selectionTopMargin = 30;
     // _doneBtn settings
     _doneBtn.frame = CGRectMake(_cancelBtn.right, _tableScroll.bottom, _coverView.width/2, selectionBtnHeight);
     _doneBtn.tag = 1;
-    [_doneBtn setTitle:@"Done" forState:UIControlStateNormal];
+    [_doneBtn setTitle:NSLocalizedString(@"Done", @"Done") forState:UIControlStateNormal];
     [_doneBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_doneBtn setBackgroundImage:btnImageNormal forState:UIControlStateNormal];
     [_doneBtn setBackgroundImage:btnImageHighlighted forState:UIControlStateHighlighted];
