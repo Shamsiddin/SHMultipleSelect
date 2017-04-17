@@ -71,4 +71,4 @@ To set a compiler flag in Xcode, go to your active target and select the "Build 
 
 ## License
 
-SHMultipleSelect is available under the MIT license. See the LICENSE file for more info.
+SHMultipleSelect is available under the MIT license. See the [LICENSE](https://github.com/Shamsiddin/SHMultipleSelect/blob/master/LICENSE) file for more info.
