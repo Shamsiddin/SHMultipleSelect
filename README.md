@@ -7,14 +7,14 @@ SHMultipleSelect is an easy-to-use multiple selection view for iOS 7.0+.
 Created by Shamsiddin
 https://www.linkedin.com/in/shamsiddin
 
-##Installation
+## Installation
 
-####Cocoapods
+#### Cocoapods
 SHMultipleSelect is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 `pod "SHMultipleSelect", "~> 0.2.2"`
 
-####Manually
+#### Manually
 
 * Copy class files from `Pod/Classes` folder to your project
 
@@ -23,7 +23,7 @@ SHMultipleSelect is available through [CocoaPods](http://cocoapods.org). To inst
 * Import `SHMultipleSelect.h` and implement `SHMultipleSelectDelegate` protocol
 * See Demo project for more details
 
-##Delegate methods
+## Delegate methods
 
 ```objective-c
 - (void)multipleSelectView:(SHMultipleSelect*)multipleSelectView clickedBtnAtIndex:(NSInteger)clickedBtnIndex withSelectedIndexPaths:(NSArray*)selectedIndexPaths;
@@ -55,7 +55,7 @@ SHMultipleSelect is available through [CocoaPods](http://cocoapods.org). To inst
 }
 ```
 
-##ARC
+## ARC
 
 SHMultipleSelect uses ARC (Automatic Reference Counting).
 
@@ -63,7 +63,7 @@ If you are using SHMultipleSelect in your non-arc project, you will need to set 
 
 To set a compiler flag in Xcode, go to your active target and select the "Build Phases" tab. Now select all SHMultipleSelect source files, press Enter, insert `-fobjc-arc` and then "Done" to disable ARC for SHMultipleSelect.
 
-##Uses Frameworks
+## Uses Frameworks
 
 * UIKit.framework
 * Foundation.framework
