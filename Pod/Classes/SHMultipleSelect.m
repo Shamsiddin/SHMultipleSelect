@@ -74,11 +74,12 @@ const int selectionTopMargin = 30;
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    NSString* text = nil;
+    NSAttributedString* text = nil;
     if ([_delegate respondsToSelector:@selector(multipleSelectView:titleForRowAtIndexPath:)]) {
         text = [_delegate multipleSelectView:self titleForRowAtIndexPath:indexPath];
     }
-    cell.textLabel.text = text;
+    cell.textLabel.attributedText = text;
+    cell.textLabel.numberOfLines = 2;
     
     BOOL selected = NO;
     if ([_delegate respondsToSelector:@selector(multipleSelectView:setSelectedForRowAtIndexPath:)]) {
