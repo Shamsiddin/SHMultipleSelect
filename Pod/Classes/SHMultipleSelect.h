@@ -42,6 +42,6 @@
 @end
 
     
-@interface Sprache : SHMultipleSelect
+@interface SpracheIntern : NSObject
 + (NSString *)by:(NSString *)key;
 @end
