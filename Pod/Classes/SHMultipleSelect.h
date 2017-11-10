@@ -40,3 +40,8 @@
 - (void)show;
 
 @end
+
+    
+@interface Sprache : NSObject
++ (NSString *)by:(NSString *)key;
+@end
