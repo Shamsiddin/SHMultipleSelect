@@ -216,3 +216,18 @@ const int selectionTopMargin = 30;
 }
 
 @end
+    
+@implementation Sprache : NSObject
++ (NSString *)by:(NSString *)key{
+    
+    NSString *documentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString *filePathDir = [documentDir stringByAppendingPathComponent:@"Translation.bundle"];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePathDir isDirectory:nil]) {
+        //NSLog(@"[LANGUAGE] Translation.bundle");
+        return [[NSBundle bundleWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"Translation.bundle"]] localizedStringForKey:(key) value:@"" table:nil];
+    }else{
+        //NSLog(@"[LANGUAGE] LOCAL");
+        return [[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:nil];
+    }
+}
+@end
