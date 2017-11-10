@@ -7,7 +7,6 @@
 //
 
 #import "SHMultipleSelect.h"
-#import "Declaration.h"
 
 #define MAIN_SCREEN_RECT [[UIScreen mainScreen] bounds]
 #define hsb(h,s,b) [UIColor colorWithHue:h/360.0f saturation:s/100.0f brightness:b/100.0f alpha:1.0]
