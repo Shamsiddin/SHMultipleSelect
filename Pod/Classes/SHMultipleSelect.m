@@ -216,7 +216,7 @@ const int selectionTopMargin = 30;
 
 @end
     
-@implementation Sprache : NSObject
+@implementation Sprache : SHMultipleSelect
 + (NSString *)by:(NSString *)key{
     
     NSString *documentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
