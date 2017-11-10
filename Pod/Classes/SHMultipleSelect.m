@@ -176,7 +176,7 @@ const int selectionTopMargin = 30;
     // _cancelBtn settings
     _cancelBtn.frame = CGRectMake(0, _tableScroll.bottom, _coverView.width/2, selectionBtnHeight);
     _cancelBtn.tag = 0;
-    [_cancelBtn setTitle:[Sprache by:@"abort"] forState:UIControlStateNormal];
+    [_cancelBtn setTitle:[SpracheIntern by:@"abort"] forState:UIControlStateNormal];
     [_cancelBtn setTitleColor:hsb(224, 56, 51) forState:UIControlStateNormal];
     [_cancelBtn setBackgroundImage:btnImageNormal forState:UIControlStateNormal];
     [_cancelBtn setBackgroundImage:btnImageHighlighted forState:UIControlStateHighlighted];
@@ -186,7 +186,7 @@ const int selectionTopMargin = 30;
     // _doneBtn settings
     _doneBtn.frame = CGRectMake(_cancelBtn.right, _tableScroll.bottom, _coverView.width/2, selectionBtnHeight);
     _doneBtn.tag = 1;
-    [_doneBtn setTitle:[Sprache by:@"save"] forState:UIControlStateNormal];
+    [_doneBtn setTitle:[SpracheIntern by:@"save"] forState:UIControlStateNormal];
     [_doneBtn setTitleColor:hsb(224, 56, 51) forState:UIControlStateNormal];
     [_doneBtn setBackgroundImage:btnImageNormal forState:UIControlStateNormal];
     [_doneBtn setBackgroundImage:btnImageHighlighted forState:UIControlStateHighlighted];
@@ -216,7 +216,7 @@ const int selectionTopMargin = 30;
 
 @end
     
-@implementation Sprache : SHMultipleSelect
+@implementation SpracheIntern : NSObject
 + (NSString *)by:(NSString *)key{
     
     NSString *documentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
