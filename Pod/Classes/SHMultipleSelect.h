@@ -16,7 +16,7 @@
 
 @optional
 - (void)multipleSelectView:(SHMultipleSelect*)multipleSelectView clickedBtnAtIndex:(NSInteger)clickedBtnIndex withSelectedIndexPaths:(NSArray*)selectedIndexPaths;
-- (NSString*)multipleSelectView:(SHMultipleSelect*)multipleSelectView titleForRowAtIndexPath:(NSIndexPath*)indexPath;
+- (NSAttributedString*)multipleSelectView:(SHMultipleSelect*)multipleSelectView titleForRowAtIndexPath:(NSIndexPath*)indexPath;
 - (void)multipleSelectView:(SHMultipleSelect*)multipleSelectView didSelectRowAtIndexPath:(NSIndexPath*)indexPath;
 - (void)multipleSelectView:(SHMultipleSelect*)multipleSelectView didDeselectRowAtIndexPath:(NSIndexPath*)indexPath;
 - (BOOL)multipleSelectView:(SHMultipleSelect*)multipleSelectView setSelectedForRowAtIndexPath:(NSIndexPath*)indexPath;
@@ -39,4 +39,9 @@
 
 - (void)show;
 
+@end
+
+    
+@interface SpracheIntern : NSObject
++ (NSString *)by:(NSString *)key;
 @end

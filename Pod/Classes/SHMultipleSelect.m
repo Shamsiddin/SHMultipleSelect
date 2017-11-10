@@ -9,6 +9,7 @@
 #import "SHMultipleSelect.h"
 
 #define MAIN_SCREEN_RECT [[UIScreen mainScreen] bounds]
+#define hsb(h,s,b) [UIColor colorWithHue:h/360.0f saturation:s/100.0f brightness:b/100.0f alpha:1.0]
 
 @interface SHMultipleSelect ()
 - (void)btnClick:(UIButton *)sender;
@@ -74,11 +75,12 @@ const int selectionTopMargin = 30;
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    NSString* text = nil;
+    NSAttributedString* text = nil;
     if ([_delegate respondsToSelector:@selector(multipleSelectView:titleForRowAtIndexPath:)]) {
         text = [_delegate multipleSelectView:self titleForRowAtIndexPath:indexPath];
     }
-    cell.textLabel.text = text;
+    cell.textLabel.attributedText = text;
+    cell.textLabel.numberOfLines = 2;
     
     BOOL selected = NO;
     if ([_delegate respondsToSelector:@selector(multipleSelectView:setSelectedForRowAtIndexPath:)]) {
@@ -174,8 +176,8 @@ const int selectionTopMargin = 30;
     // _cancelBtn settings
     _cancelBtn.frame = CGRectMake(0, _tableScroll.bottom, _coverView.width/2, selectionBtnHeight);
     _cancelBtn.tag = 0;
-    [_cancelBtn setTitle:NSLocalizedString(@"Cancel", @"Cancel") forState:UIControlStateNormal];
-    [_cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_cancelBtn setTitle:[SpracheIntern by:@"abort"] forState:UIControlStateNormal];
+    [_cancelBtn setTitleColor:hsb(224, 56, 51) forState:UIControlStateNormal];
     [_cancelBtn setBackgroundImage:btnImageNormal forState:UIControlStateNormal];
     [_cancelBtn setBackgroundImage:btnImageHighlighted forState:UIControlStateHighlighted];
     [_cancelBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -184,8 +186,8 @@ const int selectionTopMargin = 30;
     // _doneBtn settings
     _doneBtn.frame = CGRectMake(_cancelBtn.right, _tableScroll.bottom, _coverView.width/2, selectionBtnHeight);
     _doneBtn.tag = 1;
-    [_doneBtn setTitle:NSLocalizedString(@"Done", @"Done") forState:UIControlStateNormal];
-    [_doneBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_doneBtn setTitle:[SpracheIntern by:@"save"] forState:UIControlStateNormal];
+    [_doneBtn setTitleColor:hsb(224, 56, 51) forState:UIControlStateNormal];
     [_doneBtn setBackgroundImage:btnImageNormal forState:UIControlStateNormal];
     [_doneBtn setBackgroundImage:btnImageHighlighted forState:UIControlStateHighlighted];
     [_doneBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -212,4 +214,19 @@ const int selectionTopMargin = 30;
                      }];
 }
 
+@end
+    
+@implementation SpracheIntern : NSObject
++ (NSString *)by:(NSString *)key{
+    
+    NSString *documentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString *filePathDir = [documentDir stringByAppendingPathComponent:@"Translation.bundle"];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePathDir isDirectory:nil]) {
+        //NSLog(@"[LANGUAGE] Translation.bundle");
+        return [[NSBundle bundleWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"Translation.bundle"]] localizedStringForKey:(key) value:@"" table:nil];
+    }else{
+        //NSLog(@"[LANGUAGE] LOCAL");
+        return [[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:nil];
+    }
+}
 @end
